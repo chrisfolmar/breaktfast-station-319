@@ -20,10 +20,12 @@ const stagger = {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] flex items-center" data-testid="section-hero">
+    <section className="relative min-h-[85vh] flex items-center" data-testid="section-hero" aria-label="Welcome to Breakfast Station #319">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url(/images/hero-exterior.png)" }}
+        role="img"
+        aria-label="Exterior view of Breakfast Station #319, a converted railroad station restaurant"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/30" />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
@@ -353,6 +355,8 @@ function CTASection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url(/images/food-benedict.png)" }}
+        role="img"
+        aria-label="Eggs Benedict dish from Breakfast Station #319"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/60" />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -401,6 +405,7 @@ export default function Home() {
         title="Home"
         description="Breakfast Station #319 is a charming breakfast restaurant in a converted railroad station in Somersworth, NH. Classic favorites, international specialties, and signature drinks."
         path="/"
+        image="/images/hero-exterior.png"
       />
       <HeroSection />
       <InfoBar />

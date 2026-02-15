@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/lib/theme";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { RestaurantStructuredData } from "@/components/structured-data";
 import Home from "@/pages/home";
 import MenuPage from "@/pages/menu";
 import About from "@/pages/about";
@@ -31,6 +32,7 @@ function App() {
       <ThemeProvider>
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
+            <RestaurantStructuredData />
             <div className="min-h-screen flex flex-col">
               <Navigation />
               <main className="flex-1">

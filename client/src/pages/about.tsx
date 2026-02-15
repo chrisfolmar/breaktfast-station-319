@@ -1,7 +1,9 @@
+import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/seo";
-import { Train, UtensilsCrossed, Users, Heart, Leaf, Dog, Baby, Sun } from "lucide-react";
+import { Train, UtensilsCrossed, Users, Heart, Leaf, Dog, Baby, Sun, ArrowRight, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -53,6 +55,7 @@ export default function About() {
         title="About"
         description="Learn the story behind Breakfast Station #319, a family-owned breakfast restaurant in a historic converted railroad station in Somersworth, NH."
         path="/about"
+        image="/images/interior.png"
       />
       <section className="relative py-16 bg-card border-b">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -208,6 +211,39 @@ export default function About() {
                 </Card>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-card border-t">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="text-center"
+          >
+            <motion.h2 variants={fadeUp} className="font-serif text-2xl sm:text-3xl font-bold mb-4">
+              Come See Us
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-muted-foreground max-w-md mx-auto mb-6">
+              Explore our menu or plan your visit. We're open seven days a week and always happy to welcome new faces.
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-wrap justify-center items-center gap-3">
+              <Link href="/menu">
+                <Button data-testid="button-about-menu">
+                  See Our Menu
+                  <ArrowRight className="ml-1" />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="outline" data-testid="button-about-contact">
+                  <MapPin className="mr-1" />
+                  Plan Your Visit
+                </Button>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>

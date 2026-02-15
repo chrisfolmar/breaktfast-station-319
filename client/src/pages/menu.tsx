@@ -1,10 +1,12 @@
+import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SEO } from "@/components/seo";
-import { Star } from "lucide-react";
+import { Star, Info, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import type { MenuCategory, MenuItem } from "@shared/schema";
 
@@ -75,6 +77,7 @@ export default function MenuPage() {
         title="Menu"
         description="Explore the full menu at Breakfast Station #319. Eggs Benedict, omelets, Moldavian breakfast, pancakes, burgers, signature mimosas, and more. Somersworth, NH."
         path="/menu"
+        image="/images/food-benedict.png"
       />
       <section className="relative py-16 bg-card border-b">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -165,6 +168,33 @@ export default function MenuPage() {
               Menu is being updated. Please check back soon.
             </p>
           )}
+
+          <div className="mt-10 flex items-start gap-3 p-4 rounded-lg bg-muted/50 border" data-testid="menu-dietary-note">
+            <Info className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              We offer gluten-free and vegan options. Please let your server know about any dietary restrictions
+              or allergies, and we'll do our best to accommodate you. Prices may vary; ask your server for details.
+            </p>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground mb-3">
+              Questions about our menu or want to place a takeout order?
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-3">
+              <a href="tel:+16038415567">
+                <Button data-testid="button-menu-call">
+                  <Phone className="mr-1" />
+                  (603) 841-5567
+                </Button>
+              </a>
+              <Link href="/contact">
+                <Button variant="outline" data-testid="button-menu-visit">
+                  Plan Your Visit
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
