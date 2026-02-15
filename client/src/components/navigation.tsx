@@ -27,7 +27,15 @@ export function Navigation() {
 
   useEffect(() => {
     setMobileOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location]);
+
+  const handleNavClick = (href: string) => {
+    if (location === href) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setMobileOpen(false);
+    }
+  };
 
   const isHome = location === "/";
   const isTransparent = isHome && !scrolled && !mobileOpen;
@@ -58,7 +66,7 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
+              <Link key={link.href} href={link.href} onClick={() => handleNavClick(link.href)}>
                 <span
                   className={`px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors ${
                     location === link.href
@@ -103,7 +111,7 @@ export function Navigation() {
         {mobileOpen && (
           <div className="md:hidden pb-4 space-y-1">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
+              <Link key={link.href} href={link.href} onClick={() => handleNavClick(link.href)}>
                 <span
                   className={`block px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors ${
                     location === link.href
